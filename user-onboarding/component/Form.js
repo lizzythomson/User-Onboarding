@@ -1,1 +1,3 @@
-export default Form;
+import React from "react";
+
+export default function Form() {}
