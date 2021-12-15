@@ -21,6 +21,15 @@ export default function Form(props) {
           <h2>Create a New User</h2>
           <div className="inputs-container">
             <label>
+              Name
+              <input
+                name="name"
+                type="text"
+                value={values.name}
+                onChange={onChange}
+              />
+            </label>
+            <label>
               Username
               <input
                 name="username"
@@ -57,7 +66,8 @@ export default function Form(props) {
               />
             </label>
           </div>
-          <div className="errors">
+          <div className="error">
+            <div>{errors.name}</div>
             <div>{errors.username}</div>
             <div>{errors.email}</div>
             <div>{errors.password}</div>

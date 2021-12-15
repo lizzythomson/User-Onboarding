@@ -4,9 +4,11 @@ import Form from "./component/Form";
 import schema from "./validation/formSchema";
 import axios from "axios";
 import * as yup from "yup";
+import User from "./component/User";
 
 const initialFormValues = {
   username: "",
+  name: "",
   email: "",
   password: "",
   tos: false,
@@ -14,6 +16,7 @@ const initialFormValues = {
 
 const initialFormErrors = {
   username: "",
+  name: "",
   email: "",
   password: "",
   tos: "",
@@ -65,6 +68,7 @@ function App() {
   const formSubmit = () => {
     const newUser = {
       username: formValues.username.trim(),
+      name: formValues.name,
       email: formValues.email.trim(),
       password: formValues.password.trim(),
       tos: formValues.tos,
@@ -85,6 +89,7 @@ function App() {
       <header>
         <h1>Users</h1>
       </header>
+      <hr></hr>
       <Form
         values={formValues}
         change={inputChange}
@@ -92,7 +97,12 @@ function App() {
         disabled={disabled}
         errors={formErrors}
       />
-      <h2>User List</h2>
+      <div className="userlist-container">
+        <h2>User List</h2>
+        {users.map((user) => {
+          return <User key={user.id} details={user} />;
+        })}
+      </div>
     </div>
   );
 }

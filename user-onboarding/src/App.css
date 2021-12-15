@@ -1,38 +1,75 @@
-.App {
+body {
+  font-family: sans-serif;
   text-align: center;
+  font-size: 16px;
+  background-color: antiquewhite;
+  padding: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 48px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+hr {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inputs-container {
+  display: flex;
+  gap: 24px;
+}
+
+.userlist-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.user-container {
+  background-color: whitesmoke;
+  box-shadow: 0px 3px 8px rgb(0 0 0 / 24%);
+  border-radius: 10px;
+  padding: 4px 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-left: 20px;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #111;
+  box-shadow: 0px 3px 8px rgb(0 0 0 / 24%);
+}
+
+label {
+  margin: 0.5%;
+}
+
+.error {
+  color: crimson;
+  font-size: 18px;
+  margin: 8px;
+}
+
+.submit button {
+  margin-top: 12px;
+  box-shadow: 0px 3px 8px rgb(0 0 0 / 24%);
+  border-radius: 6px;
+  padding: 6px 12px;
+  background-color: whitesmoke;
+  border: none;
+}
+
+button:hover {
+  background-color: grey;
+  color: whitesmoke;
 }
