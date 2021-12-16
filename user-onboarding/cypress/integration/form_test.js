@@ -66,5 +66,18 @@ describe("Form Test", () => {
       tosInput().check({ force: true });
       submitBtn().should("not.be.disabled");
     });
+
+    it("adding a new user", () => {
+      nameInput().type("John Doe");
+      userNameInput().type("johnmichaeldoe");
+      emailInput().type("jmdoe@gmail.com");
+      passwordInput().type("passWord88!");
+      tosInput().check({ force: true });
+      submitBtn().click();
+
+      // This code currently does not have a delete button; however, it would be a sibling to the new user input
+      cy.contains("johnmichaeldoe").next().click();
+      cy.contains("johnmichaeldoe").should("not.exist");
+    });
   });
 });
