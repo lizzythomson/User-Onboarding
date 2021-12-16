@@ -79,5 +79,45 @@ describe("Form Test", () => {
       cy.contains("johnmichaeldoe").next().click();
       cy.contains("johnmichaeldoe").should("not.exist");
     });
+
+    it("form validation if name input is empty", () => {
+      userNameInput().type("charleswilsonsmith");
+      emailInput().type("charliewsmith@gmail.com");
+      passwordInput().type("pa33w0Rd!");
+      tosInput().check({ force: true });
+      submitBtn().should("be.disabled");
+    });
+
+    it("form validation if username input is empty", () => {
+      nameInput().type("Charles Smith");
+      emailInput().type("charliewsmith@gmail.com");
+      passwordInput().type("pa33w0Rd!");
+      tosInput().check({ force: true });
+      submitBtn().should("be.disabled");
+    });
+
+    it("form validation if email input is empty", () => {
+      nameInput().type("Charles Smith");
+      userNameInput().type("charleswilsonsmith");
+      passwordInput().type("pa33w0Rd!");
+      tosInput().check({ force: true });
+      submitBtn().should("be.disabled");
+    });
+
+    it("form validation if password input is empty", () => {
+      nameInput().type("Charles Smith");
+      userNameInput().type("charleswilsonsmith");
+      emailInput().type("charliewsmith@gmail.com");
+      tosInput().check({ force: true });
+      submitBtn().should("be.disabled");
+    });
+
+    it("form validation if Terms of Service is not checked", () => {
+      nameInput().type("Charles Smith");
+      userNameInput().type("charleswilsonsmith");
+      emailInput().type("charliewsmith@gmail.com");
+      passwordInput().type("pa33w0Rd!");
+      submitBtn().should("be.disabled");
+    });
   });
 });
